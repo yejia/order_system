@@ -1,0 +1,459 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-12-28 23:47+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+#: order/models.py:34
+msgid "Waiting for Payment"
+msgstr "待付款"
+
+#: order/models.py:34 order/models.py:234 product_order/models.py:94
+msgid "Finished Payment"
+msgstr "已付款"
+
+#: order/models.py:34
+msgid "Finished Shipping"
+msgstr "已发货"
+
+#: order/models.py:34
+msgid "Hold Shipping"
+msgstr "暂停发货"
+
+#: order/models.py:35 order/models.py:232
+msgid "Successful Transatcion"
+msgstr "交易成功"
+
+#: order/models.py:35
+msgid "Closed Transatcion"
+msgstr "交易关闭"
+
+#: order/models.py:36
+msgid "Waiting for Accounting"
+msgstr "待清算"
+
+#: order/models.py:36
+msgid "Finished Accounting"
+msgstr "已清算"
+
+#: order/models.py:51
+msgid "Waiting For Seller Response"
+msgstr "待商户处理"
+
+#: order/models.py:51
+msgid "Waiting For Seller Response After Return"
+msgstr "退货后待商户处理"
+
+#: order/models.py:51
+msgid "Platform Processing Refund"
+msgstr "退款处理中"
+
+#: order/models.py:51
+msgid "Seller Rejected Refund"
+msgstr "商家拒绝退款"
+
+#: order/models.py:52
+msgid "Customer Service Involved"
+msgstr "客服介入"
+
+#: order/models.py:52
+msgid "Waiting For Buyer Shipping Back"
+msgstr "待买家退货"
+
+#: order/models.py:53
+msgid "Customer Service Involved After Return"
+msgstr "退货后客服介入"
+
+#: order/models.py:54
+msgid "Platform Finished Refund"
+msgstr "平台完成退款"
+
+#: order/models.py:54
+msgid "Clustomer Closed Refund"
+msgstr "退款关闭(手动取消/超时系统自动取消)"
+
+#: order/models.py:54
+msgid "Platform Closed Refund"
+msgstr "退款关闭(客服介入拒绝退款)"
+
+#: order/models.py:314
+msgid "refund pictures"
+msgstr "退款图片"
+
+#: product_order/models.py:94
+msgid "Waiting for Refund"
+msgstr "待退款"
+
+#: product_order/models.py:94
+msgid "Finished Refund"
+msgstr "已退款"
+
+#: product_order/models.py:94
+msgid "Closed Refund"
+msgstr "退款关闭"
+
+#: product_order/models.py:706
+msgid "Refund Only"
+msgstr "仅退款"
+
+#: product_order/models.py:706
+msgid "Refund and Return"
+msgstr "退款退货"
+
+#: product_order/models.py:727
+msgid "express tracking number for tracking the shipping"
+msgstr "查询快递包裹的快递单号"
+
+#: service_order/models.py:448
+msgid "Unused"
+msgstr "未使用"
+
+#: service_order/models.py:448
+msgid "Used"
+msgstr "已使用"
+
+#: service_order/models.py:448
+msgid "Refunded"
+msgstr "退款完成"
+
+#: service_order/models.py:448
+msgid "Expired"
+msgstr "过期了"
+
+#: service_order/models.py:469
+msgid "Anytime Refund"
+msgstr "随时退款"
+
+#: service_order/models.py:469
+msgid "Expiration Refund"
+msgstr "过期退款"
+
+#: templates/product_order/create_order.html:16
+#: templates/service_order/create_order.html:17
+msgid "create order"
+msgstr "下单"
+
+#: templates/product_order/make_order2.html:12
+#: templates/product_order/make_order3.html:13
+#: templates/service_order/make_order3.html:37
+msgid "roles"
+msgstr "发起者"
+
+#: templates/product_order/make_order2.html:13
+#: templates/product_order/make_order3.html:14
+#: templates/service_order/make_order3.html:38
+msgid "order states"
+msgstr "订单状态"
+
+#: templates/product_order/make_order2.html:14
+#: templates/product_order/make_order3.html:15
+msgid ""
+"The state HS will not be displayed at the ecommerce site. It is only to be "
+"viewed by backend tech people."
+msgstr "HS状态在实际电商平台中不会显示出来，只供后台技术人员查看"
+
+#: templates/product_order/make_order2.html:15
+#: templates/product_order/make_order3.html:16
+msgid "order items states"
+msgstr "订单中商品状态:"
+
+#: templates/product_order/make_order2.html:18
+#: templates/product_order/make_order2.html:138
+#: templates/product_order/make_order3.html:22
+#: templates/product_order/make_order3.html:171
+#: templates/service_order/make_order3.html:44
+#: templates/service_order/make_order3.html:210
+msgid "Notice"
+msgstr "注意"
+
+#: templates/product_order/make_order2.html:18
+#: templates/product_order/make_order3.html:22
+#: templates/service_order/make_order3.html:44
+msgid ""
+"There is no display of refund sheet states. But actions made have taken into "
+"account the states of refund sheet. If necessary, refund sheet states can be "
+"displayed here as well."
+msgstr ""
+"本页面退款单的状态没有显示。但可以进行的操作考虑了退款单的状态。如有需要，可"
+"以考虑在本页同时显示退款单状态。"
+
+#: templates/product_order/make_order2.html:23
+#: templates/product_order/make_order3.html:27
+#: templates/service_order/make_order3.html:49
+msgid "About this demo"
+msgstr "关于本demo说明 "
+
+#: templates/product_order/make_order2.html:28
+#: templates/product_order/make_order3.html:32
+#: templates/service_order/make_order3.html:54
+msgid "order"
+msgstr "订单"
+
+#: templates/product_order/make_order2.html:28
+#: templates/product_order/make_order3.html:32
+#: templates/service_order/make_order3.html:54
+msgid "current state"
+msgstr "当前状态"
+
+#: templates/product_order/make_order2.html:28
+#: templates/product_order/make_order3.html:32
+#: templates/service_order/make_order3.html:54
+msgid "refresh"
+msgstr "刷新 "
+
+#: templates/product_order/make_order2.html:36
+#: templates/product_order/make_order2.html:68
+#: templates/product_order/make_order2.html:101
+#: templates/product_order/make_order3.html:42
+#: templates/product_order/make_order3.html:91
+#: templates/product_order/make_order3.html:124
+#: templates/service_order/make_order3.html:64
+#: templates/service_order/make_order3.html:120
+#: templates/service_order/make_order3.html:163
+msgid "Actions currently available  on the order"
+msgstr "当前可以对订单进行的操作"
+
+#: templates/product_order/make_order2.html:45
+#: templates/product_order/make_order2.html:77
+#: templates/product_order/make_order2.html:110
+#: templates/product_order/make_order3.html:57
+#: templates/product_order/make_order3.html:100
+#: templates/product_order/make_order3.html:138
+#: templates/service_order/make_order3.html:79
+#: templates/service_order/make_order3.html:129
+#: templates/service_order/make_order3.html:177
+msgid "Items in the order"
+msgstr "该订单中的商品项"
+
+#: templates/product_order/make_order2.html:45
+#: templates/product_order/make_order2.html:77
+#: templates/product_order/make_order2.html:110
+#: templates/product_order/make_order3.html:57
+#: templates/product_order/make_order3.html:100
+#: templates/product_order/make_order3.html:138
+#: templates/service_order/make_order3.html:79
+#: templates/service_order/make_order3.html:129
+#: templates/service_order/make_order3.html:177
+msgid ""
+"item id, item name, item state, actions currently available  on the item"
+msgstr "商品号，商品名称，状态，可以进行的操作"
+
+#: templates/product_order/make_order2.html:127
+#: templates/product_order/make_order2.html:156
+#: templates/product_order/make_order3.html:160
+#: templates/product_order/make_order3.html:189
+#: templates/service_order/make_order3.html:199
+#: templates/service_order/make_order3.html:228
+msgid ""
+"Please be aware that the timed tasks can be viewed by the monitoring web "
+"console, "
+msgstr "注意后台的定时任务可以通过监控平台查看，比如demo站点的"
+
+#: templates/product_order/make_order2.html:127
+#: templates/product_order/make_order2.html:156
+#: templates/product_order/make_order3.html:160
+#: templates/product_order/make_order3.html:189
+#: templates/service_order/make_order3.html:199
+#: templates/service_order/make_order3.html:228
+msgid "timed tasks monitoring"
+msgstr "定时任务监控"
+
+#: templates/product_order/make_order2.html:132
+#: templates/product_order/make_order3.html:165
+#: templates/service_order/make_order3.html:204
+msgid "Back to the start"
+msgstr "回到起始状态"
+
+#: templates/product_order/make_order2.html:138
+#: templates/product_order/make_order3.html:171
+#: templates/service_order/make_order3.html:210
+msgid ""
+"This demo is a demo for the ordering system, which can be used as middleware "
+"for various ordering centers in the ecommerce platform. It demonstrates the "
+"states that the order needs to go through, and the actions from each role "
+"(buyer, seller, platform) that can be applied to the order when in a certain "
+"state, the states of the order and its items after the action, and actions "
+"available next. This demo put these roles and actions on the same page "
+"demonstrate the workflow of order system. This demo is for product order. In "
+"addition, we also have"
+msgstr ""
+"本demo是对订单系统（核心系统）的演示。通过展示在订单下单后其经过的各种状态，"
+"在每个状态时，几个角色或者说发起者（买家，商家，和平台）可以进行的操作，并显"
+"示操作后订单及其商品项的状态，以及下一步的可以进行的状态。本demo通过整合这些"
+"角色关于订单的操作在同一个页面来展示订单系统的流程和逻辑。实际电商平台的几个"
+"订单中心将在此订单系统（核心系统）的基础上去实现。此演示为商品订单。另有"
+
+#: templates/product_order/make_order2.html:138
+#: templates/product_order/make_order3.html:171
+#: templates/service_order/make_order3.html:210
+msgid "service order demo"
+msgstr "服务订单演示"
+
+#: templates/product_order/make_order2.html:141
+#: templates/product_order/make_order3.html:174
+#: templates/service_order/make_order3.html:213
+msgid "The types of actions of the platform"
+msgstr "平台行为有几种"
+
+#: templates/product_order/make_order2.html:143
+#: templates/product_order/make_order3.html:176
+#: templates/service_order/make_order3.html:215
+msgid ""
+"The action triggered by the state change. These actions are written in the "
+"database table of the state machines. These actions are executed immediately"
+msgstr ""
+"对象状态改变后，触发的平台行为，一般都会写在数据库的状态机表里。这种行为可以"
+"是立即执行的"
+
+#: templates/product_order/make_order2.html:146
+#: templates/product_order/make_order3.html:179
+#: templates/service_order/make_order3.html:218
+msgid ""
+"Timed tasks, such as whether there is payment within 24 hours, whether "
+"seller has responded to the refund request within 72 hours"
+msgstr ""
+"也可以是定时延期执行的，比如24小时内有无付款的判断和相应操作，72小时内卖家对"
+"退款请求没有响应的判断和请求"
+
+#: templates/product_order/make_order2.html:149
+#: templates/product_order/make_order3.html:182
+#: templates/service_order/make_order3.html:221
+msgid ""
+"Inputs from other systems, such as from payment system notifying payment is "
+"successfully finished"
+msgstr "来自其他系统的输入，比如支付系统完成支付"
+
+#: templates/product_order/make_order2.html:152
+#: templates/product_order/make_order3.html:185
+#: templates/service_order/make_order3.html:224
+msgid ""
+"Manually triggered action by admins. For example, customer representatives "
+"can force a refund. For now, we treat this type of action as a platform "
+"action as well."
+msgstr ""
+"后台管理人员管理订单时，手动触发的行为，比如客服人员介入时强迫退款。这个目前"
+"也暂定为系统的角色。"
+
+#: templates/product_order/make_order3.html:79
+#: templates/service_order/make_order3.html:101
+msgid "refund sheet id"
+msgstr "退款单号"
+
+#: templates/product_order/make_order3.html:123
+#: templates/service_order/make_order3.html:162
+msgid ""
+"Notice: green actions means action inputs from other systems (since it is "
+"not plugged into other systems yet, you can click to trigger them), brown "
+"actions means timed tasks triggered by the platform(these are executed by "
+"the platform automatically and thus cannot be clicked manually. However you "
+"can view them through the monitoring web console. Normally the waiting time "
+"is set to 120 seconds for the demo), other actions are actions for the "
+"admins."
+msgstr ""
+"注: 绿色的动作表示来自其他系统的输入（因为还没有接入其他系统，所以可以人为点"
+"击来代为触发），褐色的动作表示系统触发的定时任务（由后台自动执行，不能手动触"
+"发，但可以通过监控平台查看. 等待时间暂时统一设为120秒），其他为后台管理员可以"
+"执行的动作."
+
+#: templates/service_order/make_order3.html:105
+#: templates/service_order/make_order3.html:145
+msgid "Attendance code"
+msgstr "消费码"
+
+#: templates/service_order/make_order3.html:147
+msgid "validate"
+msgstr "验证"
+
+#~ msgid "demo"
+#~ msgstr "演示"
+
+#~ msgid "Seller Agreed Refund"
+#~ msgstr "商家同意退款"
+
+#~ msgid "all items refunded"
+#~ msgstr "所有商品项已退款"
+
+#~ msgid "cancel order"
+#~ msgstr "取消订单"
+
+#~ msgid "make payment"
+#~ msgstr "付款"
+
+#~ msgid "no payment"
+#~ msgstr "24小时内没有付款"
+
+#~ msgid "payment successful"
+#~ msgstr "成功付款"
+
+#~ msgid "confirm reception of commodity"
+#~ msgstr "确认收货"
+
+#~ msgid "auto ack reception of order"
+#~ msgstr "15天自动确认收货"
+
+#~ msgid "finished accounting"
+#~ msgstr "已清算"
+
+#~ msgid "cancel refund request"
+#~ msgstr "取消退款请求"
+
+#~ msgid "request refund"
+#~ msgstr "请求退款"
+
+#~ msgid "reject refund"
+#~ msgstr "拒绝退款"
+
+#~ msgid "request customer service involvement"
+#~ msgstr "请求客服介入"
+
+#~ msgid "change refund request"
+#~ msgstr "修改退款请求"
+
+#~ msgid "buyer no response"
+#~ msgstr "买家72小时内无响应"
+
+#~ msgid "agree refund"
+#~ msgstr "同意退款"
+
+#~ msgid "seller no response"
+#~ msgstr "卖家72小时内无响应"
+
+#~ msgid "extend auto acking reception of order"
+#~ msgstr "延长3天收货"
+
+#~ msgid "change shipping fee"
+#~ msgstr "修改运费"
+
+#~ msgid "finished refund"
+#~ msgstr "已退款"
+
+#~ msgid "confirm reception of order"
+#~ msgstr "确认收货"
+
+#~ msgid "request refund with return"
+#~ msgstr "退款退货"
+
+#~ msgid "ship back"
+#~ msgstr "完成退货"
+
+#~ msgid "change shipping addr"
+#~ msgstr "修改收货地址"
+
+#~ msgid "force refund"
+#~ msgstr "强制退款"
+
+#~ msgid "all used"
+#~ msgstr "已全部使用"

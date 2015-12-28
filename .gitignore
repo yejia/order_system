@@ -1,0 +1,7 @@
+*.pyc
+*~
+db.sqlite3
+order_system/env_settings.py
+order/migrations/
+service_order/migrations/
+fabfile.py

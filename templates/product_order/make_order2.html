@@ -1,0 +1,161 @@
+{% load i18n %}
+{% load extra %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+</head>
+<body>
+
+<b>Glossary</b>:<br/>
+<div>{% trans 'roles' %}:   P=Platform, B=Buyer, S=Seller</div>
+<div>{% trans 'order states' %}: WP='Waiting for Payment', FP='Finished Payment', FS='Finished Shipping',
+        ST='Successful Transaction', CT='Closed Transaction', WA='Waiting for Accounting', FA='Finished Accounting', HS='Hold Shipping' ({% trans 'The state HS will not be displayed at the ecommerce site. It is only to be viewed by backend tech people.' %})</div>
+<div>{% trans 'order items states' %}: FP='Finished Payment', WR='Waiting for Refund', FR='Finished Refund', CR='Closed Refund'</div>
+
+<div style="font-size:small;">
+{% trans 'Notice' %}：{% trans 'There is no display of refund sheet states. But actions made have taken into account the states of refund sheet. If necessary, refund sheet states can be displayed here as well.' %}
+</div>
+
+<br/><br/>
+
+<a href="#notice">{% trans 'About this demo' %}</a>
+
+
+
+<br/><br/><br/><br/>
+<b>{% trans 'order' %} {{order}} {% trans 'current state' %}:{{order.state}} ({{ order.get_state_display }})</b> <a href="?order_id={{order}}&refresh=y">{% trans 'refresh' %}</a>    
+
+<br/><br/>
+
+<br/><br/>
+<div style="border:dotted;">
+<b>buyer:</b><br/>
+
+<ul>{% trans 'Actions currently available  on the order' %}:
+{% for act in order.get_role_actions.B %}
+<li>
+    <a href="?order_id={{order}}&role=B&action={{act}}">{% trans act %}</a>
+</li>     
+{% endfor %}
+</ul>
+
+<br/>
+<ul>{% trans 'Items in the order' %}({% trans 'item id, item name, item state, actions currently available  on the item' %}):
+{% for item in order.order_item_rel_set.all  %}
+<li>
+    {{item.item_id}} &nbsp;&nbsp;{{item.get_item.name}}&nbsp;&nbsp; state:{{item.state}} ({{ item.get_state_display }}) &nbsp;&nbsp;   
+    {%with item.get_role_actions as item_ras %} 
+    {% for key in item_ras.keys %}
+        {%if key == 'B' %}
+            {%for a in item_ras.B %}
+                <a href="?order_id={{order}}&item_id={{item.item_id}}&role=B&item_action={{a}}">{% trans a %}</a>&nbsp;&nbsp;
+            {% endfor %}    
+        {% endif %}        
+    {% endfor %} 
+    {% endwith %}   
+</li>     
+{% endfor %}
+</ul>
+
+
+</div>
+
+<br/><br/><br/>
+<div style="border:dotted;">
+<b>seller:</b><br/>
+<ul>{% trans 'Actions currently available  on the order' %}:
+{% for act in order.get_role_actions.S %}
+<li>
+    <a href="?order_id={{order.id}}&role=S&action={{act}}">{% trans act %}</a>
+</li>     
+{% endfor %}
+</ul>
+
+<br/>
+<ul>{% trans 'Items in the order' %}({% trans 'item id, item name, item state, actions currently available  on the item' %}):
+{% for item in order.order_item_rel_set.all %}
+<li>
+    {{item.item_id}} &nbsp;&nbsp;{{item.get_item.name}}&nbsp;&nbsp; state:{{item.state}} ({{ item.get_state_display }})&nbsp;&nbsp;   
+    {%with item.get_role_actions as item_ras %}
+    {% for key in item_ras.keys %}
+        {%if key == 'S' %}
+            {%for a in item_ras.S %}
+                <a href="?order_id={{order.id}}&item_id={{item.item_id}}&role=S&item_action={{a}}">{% trans a %}</a>&nbsp;&nbsp;
+            {% endfor %}    
+        {% endif %}        
+    {% endfor %} 
+    {% endwith %}   
+</li>     
+{% endfor %}
+</ul>
+
+</div>	
+
+
+
+<br/><br/><br/>
+<div style="border:dotted;">
+<b>platform:</b><br/>
+<ul>{% trans 'Actions currently available  on the order' %}:
+{% for act in order.get_role_actions.P %}
+   <li>
+    <a href="?order_id={{order.id}}&role=P&action={{act}}">{% trans act %}</a>
+   </li> 
+{% endfor %}
+</ul>
+
+<br/>
+<ul>{% trans 'Items in the order' %}({% trans 'item id, item name, item state, actions currently available  on the item' %}):
+{% for item in order.order_item_rel_set.all  %}
+<li>
+    {{item.item_id}} &nbsp;&nbsp;{{item.get_item.name}}&nbsp;&nbsp; state:{{item.state}}({{ item.get_state_display }}) &nbsp;&nbsp;   
+    {%with item.get_role_actions as item_ras %}
+    {% for key in item_ras.keys %}
+        {%if key == 'P' %}
+            {%for a in item_ras.P %}
+                <a href="?order_id={{order.id}}&item_id={{item.item_id}}&role=P&item_action={{a}}">{% trans a %}</a>&nbsp;&nbsp;
+            {% endfor %}    
+        {% endif %}        
+    {% endfor %} 
+    {% endwith %}   
+</li>     
+{% endfor %}
+</ul>
+
+{% trans 'Please be aware that the timed tasks can be viewed by the monitoring web console, ' %}<a href="{% settings_value "CELERY_MONITOR_SITE" %}" target="top">{% trans 'timed tasks monitoring' %}</a>
+<br/><br/>
+</div>	
+
+<br/><br/><br/><br/>
+<a href="/demo/make_order2/">{% trans 'Back to the start' %}</a><br/>
+<a href="/demo/">back to index</a>
+
+
+<br/><br/><br/><br/>
+<div style="font-size:small;">
+<a id="notice">{% trans 'Notice' %}说明</a>：{% trans 'This demo is a demo for the ordering system, which can be used as middleware for various ordering centers in the ecommerce platform. It demonstrates the states that the order needs to go through, and the actions from each role (buyer, seller, platform) that can be applied to the order when in a certain state, the states of the order and its items after the action, and actions available next. This demo put these roles and actions on the same page demonstrate the workflow of order system. This demo is for product order. In addition, we also have' %}<a href="/service_order_demo/">{% trans 'service order demo' %}</a>。
+
+
+<ul>{% trans 'The types of actions of the platform' %}：
+<li>
+1.{% trans 'The action triggered by the state change. These actions are written in the database table of the state machines. These actions are executed immediately' %}；
+</li>
+<li>
+2.{% trans 'Timed tasks, such as whether there is payment within 24 hours, whether seller has responded to the refund request within 72 hours' %}；
+</li>
+<li>
+3.{% trans 'Inputs from other systems, such as from payment system notifying payment is successfully finished' %}；
+</li>
+<li>
+4.{% trans 'Manually triggered action by admins. For example, customer representatives can force a refund. For now, we treat this type of action as a platform action as well.' %}
+</li>
+</ul>
+
+{% trans 'Please be aware that the timed tasks can be viewed by the monitoring web console, ' %}<a href="{% settings_value "CELERY_MONITOR_SITE" %}" target="top">{% trans 'timed tasks monitoring' %}</a>
+
+</div>
+
+</body>
+</html>

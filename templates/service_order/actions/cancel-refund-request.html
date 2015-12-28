@@ -1,0 +1,55 @@
+{% load i18n %}
+
+<style>
+.level{
+  border:solid;
+  width:500px;
+  height:300px;
+  background:#FFCC66;	
+  z-index:52;
+}
+</style>
+ <script language="javascript" type="text/javascript">
+
+function request_refund(item_id){
+     
+     $('#'+item_id).show();
+  
+
+
+}
+
+ </script>
+
+
+<a href="javascript:request_refund({{item.item_id}});">{% trans a %}</a>&nbsp;&nbsp;
+
+<div class="level" id="{{item.item_id}}" style="display:none;">
+	退款类型：仅退款（无需退货）
+    <form action="" method="get">
+        <input type="hidden" name="order_id" value="{{order.order_id}}"/>
+        <input type="hidden" name="item_id" value="{{item.item_id}}"/>
+        <input type="hidden" name="role" value="B"/>
+        <input type="hidden" name="item_action" value="{{a}}"/>
+        
+        请选择取消理由：
+        <select name="reason">
+			<option value="1">不想买了</option>
+			<option value="2">重新拍</option>
+			<option value="3">卖家缺货</option>
+			<option value="4">其他原因</option>
+			</select><br/>
+		退款说明：<br/>
+		
+    	
+    	<button type="submit" class="submit" confirm="true"/>确定</button>
+ 		<button type="reset" class="reset" />取消</button>
+
+
+        
+    </form>
+</div>	
+
+
+
+

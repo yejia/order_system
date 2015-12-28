@@ -1,0 +1,33 @@
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'ecomm',                      # Or path to database file if using sqlite3.
+        'USER': 'username',                      # Not used with sqlite3.
+        'PASSWORD': 'passwd',                  # Not used with sqlite3.
+        'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+    }
+}
+
+# Absolute filesystem path to the directory that will hold user-uploaded files.
+# Example: "/home/media/media.lawrence.com/media/"
+MEDIA_ROOT = '/pathonserverforstoringpics/'
+
+
+ORDER_SYSTEM_DEMO = True
+INTERVAL_FOR_DEMO = 120
+WAIT_FOR_EXTENDING_INTERVAL_FOR_DEMO = 60
+INTERVAL_OF_EXTENDING_FOR_DEMO = 20
+
+PAYMENT_WAITING_PERIOD = 24*60*60
+SELLER_NO_RESPONSE_WAITING_PERIOD = 3*24*60*60
+BUYER_NO_RESPONSE_WAITING_PERIOD = 3*24*60*60
+WAIT_FOR_EXTENDING_INTERVAL_WAITING_PERIOD = 7*24*60*60
+LENGTH_OF_EXTENDING_AUTO_ACK_SHIPPING = 3*24*60*60 
+AUTO_ACK_SHIPPING_WAITING_PERIOD = 15*24*60*60
+NO_REFUND_REQUST_AFTER_ST_WAITING_PERIOD = 7*24*60*60
+
+
+CELERY_MONITOR_SITE = 'http://localhost:9998/tasks'

@@ -1,0 +1,41 @@
+{% load i18n %}
+
+<style>
+.level{
+  border:solid;
+  width:500px;
+  height:300px;
+  background:#FFCC66;	
+  z-index:52;
+}
+</style>
+ <script language="javascript" type="text/javascript">
+
+function request_refund(item_id){
+     
+     $('#'+item_id).show();
+  
+
+
+}
+
+ </script>
+
+
+<a href="javascript:request_refund({{order.order_id}});">{% trans act %}</a>&nbsp;&nbsp;
+
+<div class="level" id="{{order.order_id}}" style="display:none;">
+	退款类型：未使用退款
+    <form action="" method="get">
+        <input type="hidden" name="order_id" value="{{order.order_id}}"/>
+        <input type="hidden" name="role" value="B"/>
+        <input type="hidden" name="action" value="{{act}}"/>
+        退款金额：<input type="text" name="refund_fee" value="10.00" disabled="true"/>元<br/>
+        
+		退款说明：<br/>
+		<textarea cols="50" rows="10" name="memo"></textarea>	
+    	
+    	<input type="submit" value="提交退款申请"/>
+        
+    </form>
+</div>	

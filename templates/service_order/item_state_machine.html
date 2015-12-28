@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="/static/common/js/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function(){
+	$('.sel_cont').each(function(index){
+			onChange($(this));
+	})	
+	function onChange(obj){
+		obj.change(function(){
+			//alert('called');
+			var arr = getData(obj);
+			//alert('selected:'+arr)
+			$.get(
+				setUrl(arr),
+				function(data){
+					if(data){
+						
+						if(obj.next('select').next('select').length){
+								obj.next('select').next('select').html('<option value="0">请选择</option>')
+						}
+						h = ''
+						for (var i=0;i<data.length;i++){
+                           h = h + '<option value="'+data[i]+'">'+data[i]+'</option>'
+                        }
+						obj.next('select').html(h);
+						
+						
+					}	
+				},
+			'JSON')
+		})		
+	}
+	function getData(obj){
+		var aData = [];
+		aData.push(obj.val());
+		while(obj.prev('select').length){
+			obj = obj.prev('select');
+			aData.push(obj.val())
+		}
+		return aData;
+	}
+	function setUrl(arr){
+		if(arr.length == 1){
+			return 	'data/role/' + arr[0] + '/' +'?current_state={{current_state}}'
+		}
+		if(arr.length == 2){
+			return 	'data/role/' + arr[0] + '/action/' + arr[1] + '/' +'?current_state={{current_state}}'
+		}
+	}
+})
+</script>
+</head>
+<body>
+
+<b>Glossary</b>:<br/>
+<div>发起者:   P=Platform,B=Buyer, S=Seller</div>
+<div>状态: WP='Waiting for Payment', FP='Finished Payment', FD='Finished Delivery',
+        ST='Successful Transatcion', CT='Closed Transatcion', WA='Waiting for Accounting', FA='Finished Accounting'</div>
+
+<br/><br/><br/><br/>
+<b>订单商品项状态机当前状态:{{current_state}}</b>
+
+<form action=''>发起者:
+   <select name="role" class="sel_cont">
+     	<option value="0" >请选择</option>
+	    {% for role in role_actions.keys %}
+		<option value="{{role}}" >{{role}}</option>
+		{% endfor %}    
+   </select>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+   操作/事件:
+   <select name="action">
+		<option value="0" >请选择</option>		
+   </select>
+   <input type="hidden" name="current_state" value="{{current_state}}"/>
+   <input type="submit" value="执行"/>
+</form>
+
+
+
+<br/><br/>
+<a href="/demo/state_machine/">回到起始</a><br/>
+<a href="/demo/">back to index</a>
+</body>
+</html>

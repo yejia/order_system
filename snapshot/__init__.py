@@ -1,0 +1,1 @@
+#this module is for commodity snapshot, including service commodity and product snapshot

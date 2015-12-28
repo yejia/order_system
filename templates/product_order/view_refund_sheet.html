@@ -1,0 +1,39 @@
+{% load i18n %}
+
+
+<style>
+td{
+  border:1px solid;  
+}
+</style>
+
+
+退款状态：{{refund_sheet.state}} ({{refund_sheet.get_state_display}})<br/>
+
+退款单号:{{refund_sheet.id}}<br/>
+退款类型：{{refund_sheet.refund_type}}<br/>
+退款金额：{{refund_sheet.refund_fee}}<br/>
+申请退款时间：{{refund_sheet.init_time}}<br/>
+退款理由：{{refund_sheet.reason}}<br/>
+退款说明：{{refund_sheet.memo}}
+<br/><br/><br/>
+
+<b>退款记录：</b><br/>
+<table>
+<tr>	
+{% for rl in refund_sheet.refund_log_set.all %}
+<td>
+ 操作者: {{rl.operator}}<br/>
+</td>
+<td> 
+ 操作动作：{{rl.action}}<br/>
+ 生成时间：{{rl.init_time}}<br/>
+ 退款类型：{{rl.refund_type}}<br/>
+ 退款金额：{{rl.refund_fee}}元<br/>
+ 退款理由：{{rl.reason}}<br/>
+ 退款说明：{{rl.memo}}
+</td> 
+</tr>
+
+{% endfor %}
+</table>
