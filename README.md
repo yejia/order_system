@@ -34,7 +34,7 @@ Easy Order System for ECommerce
 
 		copy order_system/env_settings.tmpl content into order_system/env_settings.py, and change the values to your local environment settings
 
-8. run tests (TODO:)
+8. run tests
 
 		python manage.py test 
 
