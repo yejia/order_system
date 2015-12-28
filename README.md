@@ -36,7 +36,7 @@ Easy Order System for ECommerce
 
 8. run tests (TODO:)
 
-		python rununittests.py 
+		python manage.py test 
 
 9. install [rabbitmq-server](http://www.rabbitmq.com/install-debian.html "install rabbitmq-server on ubuntu")
 
