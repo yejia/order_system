@@ -63,7 +63,7 @@ Easy Order System for ECommerce
                 
 		http://localhost:8000/service_order_demo/
 
-15: live demo (TODO):
+15: live demo site (TODO):
 
 
 
