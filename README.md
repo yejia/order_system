@@ -63,7 +63,16 @@ Easy Order System for ECommerce
                 
 		http://localhost:8000/service_order_demo/
 
-15: live demo site (TODO):
+15: live demo site:
+
+		#product order
+		http://easy_order.yugonger.com/demo/
+		#service order
+		http://easy_order.yugonger.com/service_order_demo/
+		#task monitoring
+		http://easy_order.yugonger.com:9998/tasks?limit=100
+
+	
 
 
 
