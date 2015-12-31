@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-28 23:47+0800\n"
+"POT-Creation-Date: 2015-12-31 18:08+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -141,22 +141,75 @@ msgstr "随时退款"
 msgid "Expiration Refund"
 msgstr "过期退款"
 
+#: templates/404.html:10
+msgid "You just come to a land of no knowledge."
+msgstr ""
+
+#: templates/404.html:10
+msgid ""
+"Please check the url to see if spelled correctly, or if there is such a "
+"note, frame, knowledge area, tag tree, learning group, or..."
+msgstr ""
+
+#: templates/500.html:5
+msgid "Sorry that an internal server error happened..."
+msgstr ""
+
+#: templates/500.html:5
+msgid ""
+"An error report is sent to the admin, and it will be fixed shortly. Please "
+"come back later."
+msgstr ""
+
+#: templates/500.html:5
+msgid ""
+"Normally errors get fixed within one or two days. If not, you can contact "
+"sys @ opensourcelearning.org "
+msgstr ""
+
 #: templates/product_order/create_order.html:16
 #: templates/service_order/create_order.html:17
 msgid "create order"
 msgstr "下单"
 
+#: templates/product_order/make_order.html:61
 #: templates/product_order/make_order2.html:12
 #: templates/product_order/make_order3.html:13
+#: templates/product_order/order_state_machine.html:61
+#: templates/product_order/order_state_machine.html:68
 #: templates/service_order/make_order3.html:37
 msgid "roles"
 msgstr "发起者"
 
+#: templates/product_order/make_order.html:62
 #: templates/product_order/make_order2.html:13
 #: templates/product_order/make_order3.html:14
+#: templates/product_order/order_state_machine.html:62
 #: templates/service_order/make_order3.html:38
 msgid "order states"
 msgstr "订单状态"
+
+#: templates/product_order/make_order.html:66
+#: templates/product_order/make_order2.html:28
+#: templates/product_order/make_order3.html:32
+#: templates/service_order/make_order3.html:54
+msgid "order"
+msgstr "订单"
+
+#: templates/product_order/make_order.html:66
+#: templates/product_order/make_order2.html:28
+#: templates/product_order/make_order3.html:32
+#: templates/service_order/make_order3.html:54
+msgid "current state"
+msgstr "当前状态"
+
+#: templates/product_order/make_order.html:102
+#: templates/product_order/make_order2.html:132
+#: templates/product_order/make_order3.html:165
+#: templates/product_order/order_state_machine.html:87
+#: templates/service_order/make_order3.html:204
+msgid "Back to the start"
+msgstr "回到起始状态"
 
 #: templates/product_order/make_order2.html:14
 #: templates/product_order/make_order3.html:15
@@ -195,18 +248,6 @@ msgstr ""
 #: templates/service_order/make_order3.html:49
 msgid "About this demo"
 msgstr "关于本demo说明 "
-
-#: templates/product_order/make_order2.html:28
-#: templates/product_order/make_order3.html:32
-#: templates/service_order/make_order3.html:54
-msgid "order"
-msgstr "订单"
-
-#: templates/product_order/make_order2.html:28
-#: templates/product_order/make_order3.html:32
-#: templates/service_order/make_order3.html:54
-msgid "current state"
-msgstr "当前状态"
 
 #: templates/product_order/make_order2.html:28
 #: templates/product_order/make_order3.html:32
@@ -270,12 +311,6 @@ msgstr "注意后台的定时任务可以通过监控平台查看，比如demo�
 #: templates/service_order/make_order3.html:228
 msgid "timed tasks monitoring"
 msgstr "定时任务监控"
-
-#: templates/product_order/make_order2.html:132
-#: templates/product_order/make_order3.html:165
-#: templates/service_order/make_order3.html:204
-msgid "Back to the start"
-msgstr "回到起始状态"
 
 #: templates/product_order/make_order2.html:138
 #: templates/product_order/make_order3.html:171
@@ -367,6 +402,23 @@ msgstr ""
 "击来代为触发），褐色的动作表示系统触发的定时任务（由后台自动执行，不能手动触"
 "发，但可以通过监控平台查看. 等待时间暂时统一设为120秒），其他为后台管理员可以"
 "执行的动作."
+
+#: templates/product_order/order_state_machine.html:66
+msgid "Order state machine current state"
+msgstr "订单状态机当前状态"
+
+#: templates/product_order/order_state_machine.html:70
+#: templates/product_order/order_state_machine.html:78
+msgid "Please pick"
+msgstr "请选择"
+
+#: templates/product_order/order_state_machine.html:76
+msgid "Operation/Trigger"
+msgstr "操作/事件"
+
+#: templates/product_order/order_state_machine.html:81
+msgid "Execute"
+msgstr "执行"
 
 #: templates/service_order/make_order3.html:105
 #: templates/service_order/make_order3.html:145

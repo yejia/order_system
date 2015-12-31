@@ -1,3 +1,5 @@
+{% load i18n %}
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -19,7 +21,7 @@ $(function(){
 					if(data){
 						
 						if(obj.next('select').next('select').length){
-								obj.next('select').next('select').html('<option value="0">请选择</option>')
+								obj.next('select').next('select').html('<option value="0">Please pick</option>')
 						}
 						h = ''
 						for (var i=0;i<data.length;i++){
@@ -56,12 +58,12 @@ $(function(){
 <body>
 
 <b>Glossary</b>:<br/>
-<div>发起者:   P=Platform, A=Admin, B=Buyer, S=Seller</div>
-<div>状态: WP='Waiting for Payment', FP='Finished Payment', FD='Finished Delivery',
+<div>{% trans 'roles' %}:   P=Platform, A=Admin, B=Buyer, S=Seller</div>
+<div>{% trans 'order states' %}: WP='Waiting for Payment', FP='Finished Payment', FD='Finished Delivery',
         ST='Successful Transatcion', CT='Closed Transatcion'</div>
 
 <br/><br/><br/><br/>
-<b>订单{{order}}当前状态:{{current_state}}</b>
+<b>{% trans 'order' %} {{order}} {% trans 'current state' %}:{{current_state}}</b>
 
 <br/><br/><br/>
 <div>
@@ -70,7 +72,7 @@ $(function(){
 <ul>
 {% for act in role_actions.B %}
 <li>
-    <a href="?order_id={{order.order_id}}&role=B&action={{act}}">{{act}}</a>
+    <a href="?order_id={{order.id}}&role=B&action={{act}}">{{act}}</a>
 </li>     
 {% endfor %}
 </ul>
@@ -81,7 +83,7 @@ $(function(){
 <b>seller:</b><br/>
 
 {% for act in role_actions.S %}
-    <a href="?order_id={{order.order_id}}&role=S&action={{act}}">{{act}}</a>
+    <a href="?order_id={{order.id}}&role=S&action={{act}}">{{act}}</a>
 {% endfor %}
 </div>	
 
@@ -91,13 +93,13 @@ $(function(){
 <ul>
 {% for act in role_actions.P %}
    <li>
-    <a href="?order_id={{order.order_id}}&role=P&action={{act}}">{{act}}</a>
+    <a href="?order_id={{order.id}}&role=P&action={{act}}">{{act}}</a>
    </li> 
 {% endfor %}
 </ul>
 </div>	
 
-<a href="/demo/make_order/">回到起始</a><br/>
+<a href="/demo/make_order/">{% trans 'Back to the start' %}</a><br/>
 <a href="/demo/">back to index</a>
 
 </body>

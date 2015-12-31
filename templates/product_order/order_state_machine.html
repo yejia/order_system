@@ -1,3 +1,5 @@
+{% load i18n %}
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -56,33 +58,33 @@ $(function(){
 <body>
 
 <b>Glossary</b>:<br/>
-<div>发起者:   P=Platform,B=Buyer, S=Seller</div>
-<div>状态: WP='Waiting for Payment', FP='Finished Payment', FD='Finished Delivery',
+<div>{% trans 'roles' %}:   P=Platform,B=Buyer, S=Seller</div>
+<div>{% trans 'order states' %}: WP='Waiting for Payment', FP='Finished Payment', FD='Finished Delivery',
         ST='Successful Transatcion', CT='Closed Transatcion', WA='Waiting for Accounting', FA='Finished Accounting'</div>
 
 <br/><br/><br/><br/>
-<b>订单状态机当前状态:{{current_state}}</b>
+<b>{% trans 'Order state machine current state' %} :{{current_state}}</b>
 
-<form action=''>发起者:
+<form action=''>{% trans 'roles' %}:
    <select name="role" class="sel_cont">
-     	<option value="0" >请选择</option>
+     	<option value="0" >{% trans 'Please pick' %}</option>
 	    {% for role in role_actions.keys %}
 		<option value="{{role}}" >{{role}}</option>
 		{% endfor %}    
    </select>
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
-   操作/事件:
+   {% trans 'Operation/Trigger' %}:
    <select name="action">
-		<option value="0" >请选择</option>		
+		<option value="0" >{% trans 'Please pick' %}</option>		
    </select>
    <input type="hidden" name="current_state" value="{{current_state}}"/>
-   <input type="submit" value="执行"/>
+   <input type="submit" value="{% trans 'Execute' %}"/>
 </form>
 
 
 
 <br/><br/>
-<a href="/demo/order_state_machine/">回到起始</a><br/>
+<a href="/demo/order_state_machine/">{% trans 'Back to the start' %}</a><br/>
 <a href="/demo/">back to index</a>
 </body>
 </html>

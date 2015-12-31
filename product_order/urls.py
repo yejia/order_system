@@ -10,7 +10,7 @@ urlpatterns = patterns('',
      url(r'^make_order2/$', views.make_order2),
      url(r'^make_order3/$', views.make_order3),
      url(r'^create_order/$', views.create_order),
-     #url(r'^order_state_machine/data/role/(?P<role>[^/]+)/$', data_views.get_actions),
+     url(r'^order_state_machine/data/role/(?P<role>[^/]+)/$', data_views.get_actions),
      url(r'^view_refund_sheet/$', views.view_refund_sheet),
      
 
