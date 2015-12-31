@@ -1,0 +1,24 @@
+select * from service_order_order_state_machine;
++----+---------------+--------------------------------+---------------+------------+-------------------------+
+| id | operator_role | action                         | current_state | next_state | post_action             |
++----+---------------+--------------------------------+---------------+------------+-------------------------+
+|  1 | B             | create order                   |               | WP         | order_created           |
+|  2 | B             | cancel order                   | WP            | CT         |                         |
+|  3 | B             | make payment                   | WP            | WP         |                         |
+|  4 | B             | request refund                 | FP            | FP         | refund_requested        |
+|  5 | P             | no payment                     | WP            | CT         |                         |
+|  6 | P             | payment successful             | WP            | FP         | payment_successful      |
+|  7 | P             | attendance code expired        | FP            | FP         | attendance_code_expired |
+|  8 | P             | finished refund                | FP            | FP         | refund_sheet_finished   |
+|  9 | P             | used service finished refund   | FP            | ST         |                         |
+| 10 | P             | unused service finished refund | FP            | CT         |                         |
+| 11 | P             | all used                       | FP            | ST         |                         |
++----+---------------+--------------------------------+---------------+------------+-------------------------+
+
+
+select * from service_order_service_refund_state_machine;
++----+---------------+-----------------+---------------+------------+-------------+
+| id | operator_role | action          | current_state | next_state | post_action |
++----+---------------+-----------------+---------------+------------+-------------+
+|  1 | P             | finished refund | PPR           | PFR        |             |
++----+---------------+-----------------+---------------+------------+-------------+

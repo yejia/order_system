@@ -241,6 +241,11 @@ class Service_Order_Test(TestCase):
 
     """  
 
+    fixtures = ['service_order_init.json']
+
+
+
+
     def setUp(self):
         pass
 

@@ -1,0 +1,657 @@
+[
+    {
+        "pk": 1, 
+        "model": "product_order.order_state_machine", 
+        "fields": {
+            "action": "create order", 
+            "post_action": "order_created", 
+            "current_state": "", 
+            "operator_role": "B", 
+            "next_state": "WP"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "product_order.order_state_machine", 
+        "fields": {
+            "action": "cancel order", 
+            "post_action": "", 
+            "current_state": "WP", 
+            "operator_role": "B", 
+            "next_state": "CT"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "product_order.order_state_machine", 
+        "fields": {
+            "action": "make payment", 
+            "post_action": "", 
+            "current_state": "WP", 
+            "operator_role": "B", 
+            "next_state": "WP"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "product_order.order_state_machine", 
+        "fields": {
+            "action": "change shipping fee", 
+            "post_action": "", 
+            "current_state": "WP", 
+            "operator_role": "S", 
+            "next_state": "WP"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "product_order.order_state_machine", 
+        "fields": {
+            "action": "no payment", 
+            "post_action": "", 
+            "current_state": "WP", 
+            "operator_role": "P", 
+            "next_state": "CT"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "product_order.order_state_machine", 
+        "fields": {
+            "action": "payment successful", 
+            "post_action": "order_paid", 
+            "current_state": "WP", 
+            "operator_role": "P", 
+            "next_state": "FP"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "product_order.order_state_machine", 
+        "fields": {
+            "action": "ship the order", 
+            "post_action": "order_shipped", 
+            "current_state": "FP", 
+            "operator_role": "S", 
+            "next_state": "FS"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "product_order.order_state_machine", 
+        "fields": {
+            "action": "change shipping addr", 
+            "post_action": "", 
+            "current_state": "FP", 
+            "operator_role": "S", 
+            "next_state": "FP"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "product_order.order_state_machine", 
+        "fields": {
+            "action": "confirm reception of order", 
+            "post_action": "transaction_successful", 
+            "current_state": "FS", 
+            "operator_role": "B", 
+            "next_state": "ST"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "product_order.order_state_machine", 
+        "fields": {
+            "action": "auto ack reception of order", 
+            "post_action": "transaction_successful", 
+            "current_state": "FS", 
+            "operator_role": "P", 
+            "next_state": "ST"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "product_order.order_state_machine", 
+        "fields": {
+            "action": "extend auto acking reception of order", 
+            "post_action": "buyer_extend_shipping_ack", 
+            "current_state": "FS", 
+            "operator_role": "B", 
+            "next_state": "FS"
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "product_order.order_state_machine", 
+        "fields": {
+            "action": "extend auto acking reception of order", 
+            "post_action": "seller_extend_shipping_ack", 
+            "current_state": "FS", 
+            "operator_role": "S", 
+            "next_state": "FS"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "product_order.order_state_machine", 
+        "fields": {
+            "action": "all items done with refund", 
+            "post_action": "", 
+            "current_state": "ST", 
+            "operator_role": "P", 
+            "next_state": "WA"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "product_order.order_state_machine", 
+        "fields": {
+            "action": "no refund request", 
+            "post_action": "", 
+            "current_state": "ST", 
+            "operator_role": "P", 
+            "next_state": "WA"
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "product_order.order_state_machine", 
+        "fields": {
+            "action": "finished accounting", 
+            "post_action": "", 
+            "current_state": "WA", 
+            "operator_role": "P", 
+            "next_state": "FA"
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "product_order.order_state_machine", 
+        "fields": {
+            "action": "all items refunded", 
+            "post_action": "", 
+            "current_state": "ST,FS,FP", 
+            "operator_role": "P", 
+            "next_state": "CT"
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "product_order.order_state_machine", 
+        "fields": {
+            "action": "processing refund", 
+            "post_action": "", 
+            "current_state": "FP", 
+            "operator_role": "P", 
+            "next_state": "HS"
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "product_order.order_state_machine", 
+        "fields": {
+            "action": "no more open refund", 
+            "post_action": "transaction_successful", 
+            "current_state": "FS", 
+            "operator_role": "P", 
+            "next_state": "ST"
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "product_order.order_state_machine", 
+        "fields": {
+            "action": "no more open refund", 
+            "post_action": "", 
+            "current_state": "ST", 
+            "operator_role": "P", 
+            "next_state": "WA"
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "product_order.order_state_machine", 
+        "fields": {
+            "action": "item finished refund", 
+            "post_action": "", 
+            "current_state": "HS", 
+            "operator_role": "P", 
+            "next_state": "FP"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "product_order.order_item_state_machine", 
+        "fields": {
+            "order_current_state": "FP", 
+            "operator_role": "P", 
+            "current_state": "", 
+            "post_action": "", 
+            "action": "order state changed to FP", 
+            "next_state": "FP"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "product_order.order_item_state_machine", 
+        "fields": {
+            "order_current_state": "FS", 
+            "operator_role": "P", 
+            "current_state": "WR", 
+            "post_action": "", 
+            "action": "order state changed to FS", 
+            "next_state": "FP"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "product_order.order_item_state_machine", 
+        "fields": {
+            "order_current_state": "FP,HS,FS,ST", 
+            "operator_role": "B", 
+            "current_state": "FP", 
+            "post_action": "seller_no_response", 
+            "action": "request refund", 
+            "next_state": "WR"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "product_order.order_item_state_machine", 
+        "fields": {
+            "order_current_state": "FS,ST", 
+            "operator_role": "B", 
+            "current_state": "FP", 
+            "post_action": "seller_no_response", 
+            "action": "request refund with return", 
+            "next_state": "WR"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "product_order.order_item_state_machine", 
+        "fields": {
+            "order_current_state": "FP,FS,HS,ST", 
+            "operator_role": "P", 
+            "current_state": "WR", 
+            "post_action": "refund_finished", 
+            "action": "item finished refund", 
+            "next_state": "FR"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "product_order.order_item_state_machine", 
+        "fields": {
+            "order_current_state": "FP,FS,ST", 
+            "operator_role": "P", 
+            "current_state": "WR", 
+            "post_action": "refund_closed", 
+            "action": "item closed refund", 
+            "next_state": "CR"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "product_order.refund_only_state_machine", 
+        "fields": {
+            "action": "reject refund", 
+            "post_action": "buyer_no_response", 
+            "current_state": "WSR", 
+            "operator_role": "S", 
+            "next_state": "SRR"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "product_order.refund_only_state_machine", 
+        "fields": {
+            "action": "agree refund", 
+            "post_action": "", 
+            "current_state": "WSR", 
+            "operator_role": "S", 
+            "next_state": "PPR"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "product_order.refund_only_state_machine", 
+        "fields": {
+            "action": "cancel refund request", 
+            "post_action": "refund_sheet_closed", 
+            "current_state": "WSR,SRR", 
+            "operator_role": "B", 
+            "next_state": "CCR"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "product_order.refund_only_state_machine", 
+        "fields": {
+            "action": "seller no response", 
+            "post_action": "", 
+            "current_state": "WSR", 
+            "operator_role": "P", 
+            "next_state": "CSI"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "product_order.refund_only_state_machine", 
+        "fields": {
+            "action": "reject refund", 
+            "post_action": "refund_sheet_closed", 
+            "current_state": "CSI", 
+            "operator_role": "P", 
+            "next_state": "PCR"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "product_order.refund_only_state_machine", 
+        "fields": {
+            "action": "force refund", 
+            "post_action": "", 
+            "current_state": "CSI", 
+            "operator_role": "P", 
+            "next_state": "PPR"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "product_order.refund_only_state_machine", 
+        "fields": {
+            "action": "change refund request", 
+            "post_action": "", 
+            "current_state": "SRR", 
+            "operator_role": "B", 
+            "next_state": "WSR"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "product_order.refund_only_state_machine", 
+        "fields": {
+            "action": "request customer service involvement", 
+            "post_action": "", 
+            "current_state": "SRR", 
+            "operator_role": "B", 
+            "next_state": "CSI"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "product_order.refund_only_state_machine", 
+        "fields": {
+            "action": "buyer no response", 
+            "post_action": "refund_sheet_closed", 
+            "current_state": "SRR", 
+            "operator_role": "P", 
+            "next_state": "CCR"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "product_order.refund_only_state_machine", 
+        "fields": {
+            "action": "finished refund", 
+            "post_action": "refund_sheet_finished", 
+            "current_state": "PPR", 
+            "operator_role": "P", 
+            "next_state": "PFR"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "product_order.refund_with_return_state_machine", 
+        "fields": {
+            "action": "reject refund", 
+            "post_action": "buyer_no_response", 
+            "current_state": "WSR", 
+            "operator_role": "S", 
+            "next_state": "SRR"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "product_order.refund_with_return_state_machine", 
+        "fields": {
+            "action": "agree refund", 
+            "post_action": "buyer_no_response", 
+            "current_state": "WSR", 
+            "operator_role": "S", 
+            "next_state": "WBS"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "product_order.refund_with_return_state_machine", 
+        "fields": {
+            "action": "cancel refund request", 
+            "post_action": "refund_sheet_closed", 
+            "current_state": "WBS", 
+            "operator_role": "B", 
+            "next_state": "CCR"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "product_order.refund_with_return_state_machine", 
+        "fields": {
+            "action": "ship back", 
+            "post_action": "refund_seller_no_response", 
+            "current_state": "WBS", 
+            "operator_role": "B", 
+            "next_state": "WSA"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "product_order.refund_with_return_state_machine", 
+        "fields": {
+            "action": "cancel refund request", 
+            "post_action": "refund_sheet_closed", 
+            "current_state": "WSR,SRR", 
+            "operator_role": "B", 
+            "next_state": "CCR"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "product_order.refund_with_return_state_machine", 
+        "fields": {
+            "action": "seller no response", 
+            "post_action": "", 
+            "current_state": "WSR", 
+            "operator_role": "P", 
+            "next_state": "CSI"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "product_order.refund_with_return_state_machine", 
+        "fields": {
+            "action": "reject refund", 
+            "post_action": "", 
+            "current_state": "WSA", 
+            "operator_role": "S", 
+            "next_state": "CSA"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "product_order.refund_with_return_state_machine", 
+        "fields": {
+            "action": "agree refund", 
+            "post_action": "", 
+            "current_state": "WSA", 
+            "operator_role": "S", 
+            "next_state": "PPR"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "product_order.refund_with_return_state_machine", 
+        "fields": {
+            "action": "seller no response", 
+            "post_action": "", 
+            "current_state": "WSA", 
+            "operator_role": "P", 
+            "next_state": "PPR"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "product_order.refund_with_return_state_machine", 
+        "fields": {
+            "action": "reject refund", 
+            "post_action": "refund_sheet_closed", 
+            "current_state": "CSI,CSA", 
+            "operator_role": "P", 
+            "next_state": "PCR"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "product_order.refund_with_return_state_machine", 
+        "fields": {
+            "action": "force refund", 
+            "post_action": "buyer_no_response", 
+            "current_state": "CSI", 
+            "operator_role": "P", 
+            "next_state": "WBS"
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "product_order.refund_with_return_state_machine", 
+        "fields": {
+            "action": "force refund", 
+            "post_action": "", 
+            "current_state": "CSA", 
+            "operator_role": "P", 
+            "next_state": "PPR"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "product_order.refund_with_return_state_machine", 
+        "fields": {
+            "action": "change refund request", 
+            "post_action": "", 
+            "current_state": "SRR", 
+            "operator_role": "B", 
+            "next_state": "WSR"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "product_order.refund_with_return_state_machine", 
+        "fields": {
+            "action": "request customer service involvement", 
+            "post_action": "", 
+            "current_state": "SRR", 
+            "operator_role": "B", 
+            "next_state": "CSI"
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "product_order.refund_with_return_state_machine", 
+        "fields": {
+            "action": "buyer no response", 
+            "post_action": "refund_sheet_closed", 
+            "current_state": "SRR,WBS", 
+            "operator_role": "P", 
+            "next_state": "CCR"
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "product_order.refund_with_return_state_machine", 
+        "fields": {
+            "action": "finished refund", 
+            "post_action": "refund_sheet_finished", 
+            "current_state": "PPR", 
+            "operator_role": "P", 
+            "next_state": "PFR"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "product_order.pre_shipping_refund_state_machine", 
+        "fields": {
+            "action": "agree refund", 
+            "post_action": "seller_agree_refund", 
+            "current_state": "WSR", 
+            "operator_role": "S", 
+            "next_state": "PPR"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "product_order.pre_shipping_refund_state_machine", 
+        "fields": {
+            "action": "seller no response", 
+            "post_action": "", 
+            "current_state": "WSR", 
+            "operator_role": "P", 
+            "next_state": "PPR"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "product_order.pre_shipping_refund_state_machine", 
+        "fields": {
+            "action": "cancel refund request", 
+            "post_action": "refund_sheet_closed", 
+            "current_state": "WSR", 
+            "operator_role": "B", 
+            "next_state": "CCR"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "product_order.pre_shipping_refund_state_machine", 
+        "fields": {
+            "action": "finished refund", 
+            "post_action": "refund_sheet_finished", 
+            "current_state": "PPR", 
+            "operator_role": "P", 
+            "next_state": "PFR"
+        }
+    }, 
+    {
+        "pk": "33333333", 
+        "model": "product_order.commodity", 
+        "fields": {
+            "update_time": "2015-12-31T03:07:42Z", 
+            "init_time": "2015-12-31T03:07:42Z", 
+            "desc": "", 
+            "seller": "89873456", 
+            "title": "pot"
+        }
+    }, 
+    {
+        "pk": "83768385", 
+        "model": "product_order.commodity", 
+        "fields": {
+            "update_time": "2015-12-31T03:07:42Z", 
+            "init_time": "2015-12-31T03:07:42Z", 
+            "desc": "", 
+            "seller": "87433454", 
+            "title": "blanket"
+        }
+    }, 
+    {
+        "pk": "92399069", 
+        "model": "product_order.commodity", 
+        "fields": {
+            "update_time": "2015-12-31T03:07:42Z", 
+            "init_time": "2015-12-31T03:07:42Z", 
+            "desc": "", 
+            "seller": "93823878", 
+            "title": "ball"
+        }
+    }
+]

@@ -27,7 +27,7 @@ function request_refund(item_id){
 <div class="level" id="{{item.item_id}}" style="display:none;">
 	退款类型：仅退款（无需退货）
     <form action="" method="get">
-        <input type="hidden" name="order_id" value="{{order.order_id}}"/>
+        <input type="hidden" name="order_id" value="{{order.id}}"/>
         <input type="hidden" name="item_id" value="{{item.item_id}}"/>
         <input type="hidden" name="role" value="B"/>
         <input type="hidden" name="item_action" value="{{a}}"/>

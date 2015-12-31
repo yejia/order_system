@@ -1,0 +1,173 @@
+[
+    {
+        "pk": 1, 
+        "model": "service_order.order_state_machine", 
+        "fields": {
+            "action": "create order", 
+            "post_action": "order_created", 
+            "current_state": "", 
+            "operator_role": "B", 
+            "next_state": "WP"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "service_order.order_state_machine", 
+        "fields": {
+            "action": "cancel order", 
+            "post_action": "", 
+            "current_state": "WP", 
+            "operator_role": "B", 
+            "next_state": "CT"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "service_order.order_state_machine", 
+        "fields": {
+            "action": "make payment", 
+            "post_action": "", 
+            "current_state": "WP", 
+            "operator_role": "B", 
+            "next_state": "WP"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "service_order.order_state_machine", 
+        "fields": {
+            "action": "request refund", 
+            "post_action": "refund_requested", 
+            "current_state": "FP", 
+            "operator_role": "B", 
+            "next_state": "FP"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "service_order.order_state_machine", 
+        "fields": {
+            "action": "no payment", 
+            "post_action": "", 
+            "current_state": "WP", 
+            "operator_role": "P", 
+            "next_state": "CT"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "service_order.order_state_machine", 
+        "fields": {
+            "action": "payment successful", 
+            "post_action": "payment_successful", 
+            "current_state": "WP", 
+            "operator_role": "P", 
+            "next_state": "FP"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "service_order.order_state_machine", 
+        "fields": {
+            "action": "attendance code expired", 
+            "post_action": "attendance_code_expired", 
+            "current_state": "FP", 
+            "operator_role": "P", 
+            "next_state": "FP"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "service_order.order_state_machine", 
+        "fields": {
+            "action": "finished refund", 
+            "post_action": "refund_sheet_finished", 
+            "current_state": "FP", 
+            "operator_role": "P", 
+            "next_state": "FP"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "service_order.order_state_machine", 
+        "fields": {
+            "action": "used service finished refund", 
+            "post_action": "", 
+            "current_state": "FP", 
+            "operator_role": "P", 
+            "next_state": "ST"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "service_order.order_state_machine", 
+        "fields": {
+            "action": "unused service finished refund", 
+            "post_action": "", 
+            "current_state": "FP", 
+            "operator_role": "P", 
+            "next_state": "CT"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "service_order.order_state_machine", 
+        "fields": {
+            "action": "all used", 
+            "post_action": "", 
+            "current_state": "FP", 
+            "operator_role": "P", 
+            "next_state": "ST"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "service_order.service_refund_state_machine", 
+        "fields": {
+            "action": "finished refund", 
+            "post_action": "", 
+            "current_state": "PPR", 
+            "operator_role": "P", 
+            "next_state": "PFR"
+        }
+    }, 
+    {
+        "pk": "11111111", 
+        "model": "service_order.service_commodity", 
+        "fields": {
+            "update_time": "2015-12-31T03:07:42Z", 
+            "init_time": "2015-12-31T03:07:42Z", 
+            "title": "cooking", 
+            "service_times": 5, 
+            "seller": "89873456", 
+            "sale_num": 100, 
+            "desc": ""
+        }
+    }, 
+    {
+        "pk": "22222222", 
+        "model": "service_order.service_commodity", 
+        "fields": {
+            "update_time": "2015-12-31T03:07:42Z", 
+            "init_time": "2015-12-31T03:07:42Z", 
+            "title": "flowering", 
+            "service_times": 3, 
+            "seller": "87433454", 
+            "sale_num": 200, 
+            "desc": ""
+        }
+    }, 
+    {
+        "pk": "92399069", 
+        "model": "service_order.service_commodity", 
+        "fields": {
+            "update_time": "2015-12-31T03:07:42Z", 
+            "init_time": "2015-12-31T03:07:42Z", 
+            "title": "dancing", 
+            "service_times": 7, 
+            "seller": "93823878", 
+            "sale_num": 300, 
+            "desc": ""
+        }
+    }
+]

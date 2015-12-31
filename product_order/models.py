@@ -770,7 +770,7 @@ class PO_Refund_Sheet(Refund_Sheet):#Commodity Order refund sheet
 
     #TODO:override delete
     def soft_delete(self, reason=''):
-        drs = Deleted_Refund_Sheet(item_id=self.item.id, state=self.state, update_time=self.update_time, 
+        drs = Deleted_Refund_Sheet(item_id=self.item.id, state=self.state,  
             reason=reason)
         drs.save()
         self.delete()

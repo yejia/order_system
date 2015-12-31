@@ -8,28 +8,28 @@ td{
 </style>
 
 
-退款状态：{{refund_sheet.state}} ({{refund_sheet.get_state_display}})<br/>
+{% trans 'Refund Sheet State %}退款状态：{{refund_sheet.state}} ({{refund_sheet.get_state_display}})<br/>
 
-退款单号:{{refund_sheet.id}}<br/>
-退款类型：{{refund_sheet.refund_type}}<br/>
-退款金额：{{refund_sheet.refund_fee}}<br/>
-申请退款时间：{{refund_sheet.init_time}}<br/>
-退款理由：{{refund_sheet.reason}}<br/>
-退款说明：{{refund_sheet.memo}}
+{% trans 'Refund Sheet ID' %}退款单号:{{refund_sheet.id}}<br/>
+{% trans 'Refund Sheet Type' %}退款类型：{{refund_sheet.refund_type}}<br/>
+{% trans 'Refund Fee' %}退款金额：{{refund_sheet.refund_fee}}<br/>
+{% trans 'Refund Request Time ' %}申请退款时间：{{refund_sheet.init_time}}<br/>
+{% trans 'Refund Reason' %}退款理由：{{refund_sheet.reason}}<br/>
+{% trans 'Refund Memo' %}退款说明：{{refund_sheet.memo}}
 <br/><br/><br/>
 
-<b>退款记录：</b><br/>
+<b>{% trans 'Refund Log' %}退款记录：</b><br/>
 <table>
 <tr>	
 {% for rl in refund_sheet.refund_log_set.all %}
 <td>
- 操作者: {{rl.operator}}<br/>
+ {% trans 'Operator' %}操作者: {{rl.operator}}<br/>
 </td>
 <td> 
- 操作动作：{{rl.action}}<br/>
- 生成时间：{{rl.init_time}}<br/>
- 退款金额：{{rl.refund_fee}}元<br/> 
- 退款说明：{{rl.memo}}
+ {% trans 'Action' %}操作动作：{{rl.action}}<br/>
+ {% trans 'Time' %}生成时间：{{rl.init_time}}<br/>
+ {% trans 'Refund Fee' %}退款金额：{{rl.refund_fee}}元<br/> 
+ {% trans 'Refund Memo' %}退款说明：{{rl.memo}}
 </td> 
 </tr>
 

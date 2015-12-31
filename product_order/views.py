@@ -23,6 +23,7 @@ def order_state_machine(request,  template_name='product_order/order_state_machi
         #initial state
         next_state = Order_State_Machine.get_initial_state()
         ras = Order_State_Machine.get_initial_role_actions()
+        print 'ras:', ras
     else:
         next_state, post_action = Order_State_Machine.get_next(role, action, c_state)
         ras = Order_State_Machine.get_role_actions(next_state)

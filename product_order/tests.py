@@ -90,8 +90,16 @@ class Product_Order_Test(TestCase):
 
     """
 
+
+    fixtures = ['product_order_init.json']
+
     def setUp(self):
         pass
+
+
+    def test_state_machine(self):
+        initials = Order_System.get_initial()
+        self.assertDictEqual(initials, {'role_actions': {u'B': [u'create order']}, 'current_state': '', 'order': None})
 
 
     def test_work_flow1(self):

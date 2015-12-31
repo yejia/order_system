@@ -13,15 +13,6 @@ import os
 
 
 
-import django
-
-from django.core import management
-import order_system
-import order_system.settings as settings
-management.setup_environ(settings)
-
-
-
 
 
 from order_system.settings import SMS_USER, SMS_PASS, SMS_PROID, SMS_X_URL
@@ -58,12 +49,4 @@ class Mobile_Msg_Client(object):
         
         return 'Sent successfully!'
         
-
-        
-if __name__ == "__main__":        
-    mobile_num = sys.argv[1]
-    cl = Mobile_Msg_Client()        
-    msg="hello world!"    
-    print 'msg sent, and return is:', cl.sendXSms('mobile_num', msg)
-    
 
