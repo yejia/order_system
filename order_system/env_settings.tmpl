@@ -1,5 +1,8 @@
 
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
@@ -11,9 +14,17 @@ DATABASES = {
     }
 }
 
-# Absolute filesystem path to the directory that will hold user-uploaded files.
-# Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = '/pathonserverforstoringpics/'
+
+
+SMS_USER = ''
+SMS_PASS = ''
+SMS_PROID = ''
+SMS_X_URL = ""
+SMS_MANY_URL = ""
+
+
+SMS_CONTENT_FOR_SINGLE_SERVICE = u'Your purchase %s,its consumpation code is:%s  valid until %s'.encode('utf-8')
+SMS_CONTENT_FOR_MULTIPLE_SERVICE = u'Your purchase %s,its consumpation code is:%s  valid until %s, other %d comsumption codes can be viewed on your online profile'.encode('utf-8') 
 
 
 ORDER_SYSTEM_DEMO = True
@@ -28,6 +39,9 @@ WAIT_FOR_EXTENDING_INTERVAL_WAITING_PERIOD = 7*24*60*60
 LENGTH_OF_EXTENDING_AUTO_ACK_SHIPPING = 3*24*60*60 
 AUTO_ACK_SHIPPING_WAITING_PERIOD = 15*24*60*60
 NO_REFUND_REQUST_AFTER_ST_WAITING_PERIOD = 7*24*60*60
+
+
+DEFAULT_LENGTH_OF_ATTENDANCE_CODE = 10
 
 
 CELERY_MONITOR_SITE = 'http://localhost:9998/tasks'
