@@ -1,8 +1,17 @@
 Easy Order System for ECommerce
 ================
 
------------------------------------------------------------
 ## This order system is implemented with state machine supported workflow. The workflow controls the states of the order and the items in the order, what actions can be applied by what roles when the order is in a certain action, the next state and available roles and actions. Two type of orders, product order and service order, are implemented as examples. This order system can be used as middleware in various order centers in ecommerce platforms. For details, please read the [wiki](https://github.com/yejia/order_system/wiki). 
+
+## For a quick trying, here is the live demo:
+
+[product order demo](http://easy_order.yugonger.com/demo/)
+
+[service order demo](http://easy_order.yugonger.com/service_order_demo/)
+
+[task monitoring](http://easy_order.yugonger.com:9998/tasks?limit=100)
+
+## To run it locally
 
 1. install [Git](http://en.wikipedia.org/wiki/Git_%28software%29 "Git")， MySQL, virtualenv, pip 
 
@@ -63,14 +72,9 @@ Easy Order System for ECommerce
                 
 		http://localhost:8000/service_order_demo/
 
-15: live demo site:
 
-		#product order
-		http://easy_order.yugonger.com/demo/
-		#service order
-		http://easy_order.yugonger.com/service_order_demo/
-		#task monitoring
-		http://easy_order.yugonger.com:9998/tasks?limit=100
+
+
 
 	
 
