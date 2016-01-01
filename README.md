@@ -24,11 +24,13 @@ Easy Order System for ECommerce
 
 		pip install -r pip_requirements.txt 
 
-6. initialize database, login into your db shell
+6. initialize database 
 
+		#login into your mysql db shell, then run the following 
 		create database order_system character set = 'utf8';
 		use order_system;
-		#run django's syncdb	
+		#run the following django's command, it creates the tables and loads database data from your fixtures (json files in fixtures folder)
+		python manage.py migrate	
 
 7. set up local settings
 

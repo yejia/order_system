@@ -725,6 +725,7 @@ class PO_Refund_Sheet(Refund_Sheet):#Commodity Order refund sheet
 
     express_company = models.CharField(verbose_name='express company', help_text='express company that shipped back the commodity', blank=True, max_length=32)  
     express_tracking_no = models.CharField(max_length=64, blank=True, null=True, verbose_name='express tracking number', help_text=_('express tracking number for tracking the shipping'))
+    update_time = models.DateTimeField('time last modified', auto_now=True)
 
 
 
@@ -770,7 +771,7 @@ class PO_Refund_Sheet(Refund_Sheet):#Commodity Order refund sheet
 
     #TODO:override delete
     def soft_delete(self, reason=''):
-        drs = Deleted_Refund_Sheet(item_id=self.item.id, state=self.state,  
+        drs = Deleted_Refund_Sheet(item_id=self.item.id, state=self.state,  update_time=self.update_time,
             reason=reason)
         drs.save()
         self.delete()
