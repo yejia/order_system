@@ -1,7 +1,7 @@
 Easy Order System for ECommerce
 ================
 
-### This order system is implemented with state machine supported workflow. The workflow controls the states of the order and the items in the order, what actions can be applied by what roles when the order is in a certain action, the next state and available roles and actions. Two type of orders, product order and service order, are implemented as examples. This order system can be used as middleware in various order centers in ecommerce platforms. For details, please read the [wiki](https://github.com/yejia/order_system/wiki). 
+### This order system is implemented with state machine based workflow. The workflow controls the states of the order and the items in the order, what actions can be applied by what roles when the order is in a certain action, the next state and available roles and actions. Two type of orders, product order and service order, are implemented as examples. This order system can be used as middleware in various order centers in ecommerce platforms. For details, please read the [wiki](https://github.com/yejia/order_system/wiki). 
 
 ### For a quick try, here is the live demo:
 
@@ -75,7 +75,69 @@ Easy Order System for ECommerce
 		http://localhost:8000/service_order_demo/
 
 
+15. you can try the following in your django shell (run: python manage.py shell) to play with objects in the easy order system:
 
+	
+	    >>> o_id = Order_System.create_order()
+	    >>> o = get_object_or_404(Product_Order, id=o_id)
+	    >>> int(o.id) == int(o_id)
+	    True
+	    >>> o.get_role_actions()
+	    {u'P': [u'no payment', u'payment successful'], u'S': [u'change shipping fee'], u'B': [u'cancel order', u'make payment']}
+	    >>> o.state
+	    u'WP'
+	    >>> o.get_role_actions()
+	    {u'P': [u'no payment', u'payment successful'], u'S': [u'change shipping fee'], u'B': [u'cancel order', u'make payment']}
+	    >>> o.goto_next('B', 'make payement')
+	    (None, None)
+	    >>> o.state
+	    u'WP'
+	    >>> o.get_role_actions()
+	    {u'P': [u'no payment', u'payment successful'], u'S': [u'change shipping fee'], u'B': [u'cancel order', u'make payment']}
+	    >>> o.goto_next('P', 'payment successful')
+	    (u'FP', u'order_paid')
+	    >>> o.state
+	    u'FP'
+	    >>> o.get_role_actions()
+	    {u'S': [u'ship the order', u'change shipping addr']}
+	    >>> o.goto_next('s', 'ship the order') #role doesn't distinguish btw upper case or lower case
+	    (u'FS', u'order_shipped')
+	    >>> o.state
+	    u'FS'
+	    >>> o.get_role_actions()
+	    {u'P': [u'auto ack reception of order'], u'S': [], u'B': [u'confirm reception of order']}
+	    >>> o.goto_next('B', 'confirm')
+	    (None, None)
+	    >>> o.state
+	    u'FS'
+	    >>> o.goto_next('B', 'confirm reception of order')
+	    (u'ST', u'transaction_successful')
+	    >>> o.state
+	    u'ST'
+	    >>> o.get_role_actions()
+	    {u'P': [u'no refund request']}
+	    >>> 
+	    >>> o.goto_next('P', 'no refund request')
+	    (u'WA', u'')
+	    >>> o.state
+	    u'WA'
+	    >>> 
+	    >>> o.get_role_actions()
+	    {u'P': [u'finished accounting']}
+	    >>> o.goto_next('U', 'finished accounting') #unknown role have no effect
+	    (None, None)
+	    >>> o.state
+	    u'WA'
+	    >>> 
+	    >>> o.goto_next('P', 'finished accounting')
+	    (u'FA', u'')
+	    >>> o.state
+	    u'FA'
+	    >>> o.get_role_actions()
+	    {}
+
+		 
+16. for more example usages, you can view the doctest in the source code.
 
 
 	
