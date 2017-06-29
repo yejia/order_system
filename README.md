@@ -5,9 +5,9 @@ Easy Order System for ECommerce
 
 ### For a quick try, here is the live demo:
 
-[product order demo](http://easy_order.yugonger.com/demo/)
+[product order demo](http://easy_order.yugonger.com:9999/demo/)
 
-[service order demo](http://easy_order.yugonger.com/service_order_demo/)
+[service order demo](http://easy_order.yugonger.com:9999/service_order_demo/)
 
 [task monitoring](http://easy_order.yugonger.com:9998/tasks?limit=100)
 
